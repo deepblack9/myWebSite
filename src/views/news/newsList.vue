@@ -6,7 +6,7 @@
           <el-card class="box-card">
             <div slot="header" class="clearfix card-header-conents">
               <span class="card-header-title">物流新闻</span>
-              <el-button style="float: right; padding: 3px 0" type="text" @click="go('news')">更多>></el-button>
+              <el-button style="float: right; padding: 3px 0" type="text">更多>></el-button>
             </div>
             <div v-for="news in newsList" class="text item">
               <li>
@@ -56,14 +56,14 @@
       </el-col>
     </el-row>
     <el-row type="flex" justify="center" :gutter="10">
-      <el-col :span="9">
+      <el-col :span="10">
         <div class="grid-content bg-purple">
           <el-card class="box-card">
             <div slot="header" class="clearfix card-header-conents">
               <span class="card-header-title">价格信息</span>
               <el-button style="float: right; padding: 3px 0" type="text">更多>></el-button>
             </div>
-            <el-table :data="priceTableData" style="width: 100%" size="mini" stripe>
+            <el-table :data="priceTableData" :header-cell-class-name="tableheaderClassName" style="width: 100%" size="mini" stripe>
               <el-table-column prop="date" label="地区" min-width="180"></el-table-column>
               <el-table-column prop="name" label="品类" min-width="180"></el-table-column>
               <el-table-column prop="address" label="价格" min-width="180"></el-table-column>
@@ -86,14 +86,14 @@
       </el-col>
     </el-row>
     <el-row type="flex" justify="center">
-      <el-col :span="15">
+      <el-col :span="16">
         <div class="grid-content bg-purple">
           <el-card class="box-card">
             <div slot="header" class="clearfix card-header-conents">
               <span class="card-header-title">劳务中介</span>
               <el-button style="float: right; padding: 3px 0" type="text">更多>></el-button>
             </div>
-            <el-table :data="priceTableData" style="width: 100%" size="mini" stripe>
+            <el-table :data="priceTableData" :header-cell-class-name="tableheaderClassName" style="width: 100%" size="mini" stripe>
               <el-table-column prop="date" label="手机号码" min-width="180"></el-table-column>
               <el-table-column prop="name" label="类型" min-width="180"></el-table-column>
               <el-table-column prop="name" label="价格" min-width="180"></el-table-column>
@@ -104,14 +104,14 @@
       </el-col>
     </el-row>
     <el-row type="flex" justify="center">
-      <el-col :span="15">
+      <el-col :span="16">
         <div class="grid-content bg-purple">
           <el-card class="box-card">
             <div slot="header" class="clearfix card-header-conents">
               <span class="card-header-title">诚信信息</span>
               <el-button style="float: right; padding: 3px 0" type="text">更多>></el-button>
             </div>
-            <el-table :data="priceTableData" style="width: 100%" size="mini" stripe>
+            <el-table :data="priceTableData" :header-cell-class-name="tableheaderClassName" style="width: 100%" size="mini" stripe>
               <el-table-column prop="date" label="司机姓名" min-width="180"></el-table-column>
               <el-table-column prop="name" label="护照号" min-width="180"></el-table-column>
               <el-table-column prop="address" label="标签" show-overflow-tooltip width="80"></el-table-column>
@@ -134,6 +134,7 @@ export default {
   components: { Chart },
   data() {
     return {
+      tableheaderClassName: 'table-head-th',
       newsList: [],
       noticeList: [],
       policyList: [],
@@ -166,9 +167,6 @@ export default {
     this.getPolicyList()
   },
   methods: {
-    go(path) {
-      
-    },
     getNewsList() {
       // this.listLoading = true
       fetchNewsList(this.listQuery).then(response => {
@@ -235,7 +233,7 @@ export default {
   height: 90%;
 }
 
-.tableheaderClassName {
+.table-head-th {
   background-color:#f4f4f4;
   font-size: large;
 }

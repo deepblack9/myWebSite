@@ -1,12 +1,15 @@
 <template>
   <el-container>
-    <el-header style="height:auto">
+    <el-header class="header" style="height:auto">
       <page-top></page-top>
     </el-header>
     <el-main>
-      <page-main></page-main>
+      <router-view></router-view>
+      <!-- <page-main></page-main> -->
     </el-main>
-    <el-footer></el-footer>
+    <el-footer style="height:auto">
+      <page-footer></page-footer>
+    </el-footer>
   </el-container>
 </template>
 
@@ -15,13 +18,15 @@
 import Sticky from '@/components/Sticky'
 import PageTop from '@/views/Header'
 import PageMain from '@/views/Main'
+import PageFooter from '@/views/Footer'
 
 export default {
   name: 'layout',
   components: {
     Sticky,
     PageTop,
-    PageMain
+    PageMain,
+    PageFooter
   }
 }
 </script>
@@ -34,5 +39,8 @@ export default {
   scroll-y: none;
   height: 100%;
   width: 100%;
+}
+.header {
+  padding: 0px 0px;
 }
 </style>

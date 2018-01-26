@@ -5,6 +5,10 @@
   }
 }
 
+.el-row {
+  padding: 0px 5px;
+}
+
 .el-upload__input {
   display: none;
 }
@@ -28,6 +32,23 @@
   }
 }
 
+.el-card {
+  border: 0px solid #ebeef5;
+  box-shadow: 0 0px 0px 0 rgba(0,0,0,.1);
+}
+
 .el-card__header {
   padding: 5px 5px;
+  border-bottom: 1px solid #ebeef5; 
+}
+
+.el-card__body {
+  border: 0px solid #ebeef5;
+  padding: 5px 20px;
+}
+
+.el-table th {
+  background-color: #EAEFF5;
+  font-color: #EAEFF5;
+  font-size: normal;
 }

@@ -1,22 +1,23 @@
 <template>
   <div>
     <!-- <Sticky> -->
-      <el-row type="flex" align="middle">
-        <el-col :span="10" style="text-align: left"><img src="../../assets/logo.png"></el-col>
-        <el-col :span="14" style="text-align: right">
+      <el-row class="bg-top">
+        <el-col :span="4" :offset="16">
           <!-- <el-row> -->
-            <div :span="12" class="div-inline">&nbsp;</div>
-            <div :span="4" class="div-inline"><el-button type="primary" icon="el-icon-search">注册</el-button></div>
-            <div :span="4" class="div-inline"><el-button type="primary" icon="el-icon-search">登录</el-button></div>
-            <div :span="4" class="div-inline"><el-button type="primary" icon="el-icon-search">移动端</el-button></div>
+            <el-button type="text" icon="el-icon-edit">注册</el-button>
+            <el-button type="text" icon="el-icon-setting">登录</el-button>
+            <el-button type="text" icon="el-icon-mobile-phone">移动端</el-button>
           <!-- </el-row> -->
         </el-col>
       </el-row>
       <el-row>
-        <el-col>
-          <el-carousel height="150px">
-            <el-carousel-item v-for="item in jpgList" :key="item">
-              <image :src="item"></image>
+        <el-col :span="2" :offset="4"><img src="../../assets/logo.png"></el-col>
+      </el-row>
+      <el-row>
+        <el-col :span="16" :offset="4">
+          <el-carousel>
+            <el-carousel-item v-for="(item, key, index) in jpgList" :key="index" >
+              <img :src="item.img" ref="img">
             </el-carousel-item>
           </el-carousel>
         </el-col>
@@ -36,12 +37,16 @@ export default {
   },
   data() {
     return {
-      jpgList: [
-        require('@/assets/pub1.png'),
-        require('@/assets/pub2.png'),
-        require('@/assets/pub3.png'),
-        require('@/assets/pub4.png')
-      ],
+      jpg: require('@/assets/pub1.png'),
+      jpgList: [{
+        img: require('@/assets/pub1.png')
+      }, {
+        img: require('@/assets/pub2.png')
+      }, {
+        img: require('@/assets/pub3.png')
+      }, {
+        img: require('@/assets/pub4.png')
+      }],
       styleObject: {
         'background-image': 'url(' + require('@/assets/head_bg.png') + ')',
         'background-repeat': 'repeat-x'
@@ -60,7 +65,16 @@ export default {
   height: 100%;
   width: 100%;
 }
+
+.el-button--text {
+  color: #f6f7f9
+}
+
 .div-inline{ display:inline} 
+
+.bg-top {
+  background: #3F598C;
+}
 
 .bg-purple-dark {
   background: #99a9bf;

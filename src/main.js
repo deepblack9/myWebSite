@@ -15,9 +15,16 @@ import router from './router'
 
 import '@/icons' // icon
 
+import * as filters from './filters' // 全局filter
+
 Vue.config.productionTip = false
 
 Vue.use(ElementUI)
+
+// register global utility filters.
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
 
 /* eslint-disable no-new */
 new Vue({
