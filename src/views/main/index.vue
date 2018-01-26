@@ -167,7 +167,7 @@ export default {
   },
   methods: {
     go(path) {
-      
+      this.$router.push({ path: '/news' })
     },
     getNewsList() {
       // this.listLoading = true
